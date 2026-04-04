@@ -1,5 +1,3 @@
-#include <stdarg.h>
-#include "delay.h"
 #include "tft.h"
 
 void TFT_Init(void)
@@ -46,17 +44,17 @@ void TFT_Init(void)
 		TFT_RST_HIGH();
 		delay_ms(120);
 		
-		TFT_Command(0x11,0);
+		TFT_Command(TFTcmd_SLEEP_OUT,0);
     delay_ms(120);
 		
 		
-		TFT_Command(0x3A,1,0x05);
+		TFT_Command(TFTcmd_RGB_SELECT,1,0x05);
 		
-		TFT_Command(0x36,1,0x00);
+		TFT_Command(TFTcmd_MADCTL,1,0x00);
 		
-		TFT_Command(0x21,0);
+		TFT_Command(TFTcmd_INV_OFF,0);
 		
-		TFT_Command(0x29,0);
+		TFT_Command(TFTcmd_DISP_ON,0);
 		
     TFT_BL_ON();
 }

@@ -2,6 +2,8 @@
 #define __TFT_H
 
 #include "stm32f4xx.h"
+#include <stdarg.h>
+#include "delay.h"
 
 #define TFT_CS_PORT      GPIOA
 #define TFT_CS_PIN       GPIO_Pin_4
@@ -19,6 +21,14 @@
 #define TFT_RST_HIGH()   GPIO_SetBits(TFT_RST_PORT, TFT_RST_PIN)
 #define TFT_RST_LOW()    GPIO_ResetBits(TFT_RST_PORT, TFT_RST_PIN)
 #define TFT_BL_ON()      GPIO_SetBits(TFT_BL_PORT, TFT_BL_PIN)
+
+#define TFTcmd_RGB_SELECT 0x3A
+#define TFTcmd_MADCTL 0x36
+#define TFTcmd_INV_OFF 0x21
+#define TFTcmd_INV_ON 0x20
+#define TFTcmd_DISP_ON 0x29
+#define TFTcmd_SLEEP_OUT 0x11
+#define TFTcmd_SLEEP_IN 0x10
 
 void TFT_Init(void);
 
